@@ -1,0 +1,259 @@
+﻿@model Nop.Web.Models.InvoiceDetails
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = null ;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="/css/install/styles.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+    <body>
+        <div class="container">
+        <h3>Please fill the following Invoice Form</h3>
+    <div id="removeAddMoreDiv" class="col-xs-12 col-sm-12 form-group">
+        <div class="row" >
+      
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="">
+
+                    <div class="form-group col-md-4">
+                    <label asp-for="invoiceNo" class="control-label">InvoiceNo</label>
+                    <input asp-for="invoiceNo" class="form-control" />
+                  @*  <span asp-validation-for="invoiceNo" class="text-danger"></span>*@
+                </div>
+
+               @* <div class="form-group">
+                    <label asp-for="buildingNo" class="control-label"></label>
+                    <input asp-for="buildingNo" class="form-control" />
+                    @*  <span asp-validation-for="invoiceNo" class="text-danger"></span>
+                </div>*@
+
+                <div class="form-group">
+                   
+                    <input name="userNumber" class="form-control" type="hidden" value="5" />
+              
+                </div>
+
+                    <div class="form-group col-md-4">
+                    <label asp-for="aName" class="control-label">Arabic Name</label>
+                    <input asp-for="aName" class="form-control" />
+                 @*   <span asp-validation-for="aName" class="text-danger"></span>*@
+                </div>
+
+                    <div class="form-group col-md-4">
+                        <label asp-for="eName" class="control-label">Englih Name</label>
+                    <input asp-for="eName" class="form-control" />
+                 @*   <span asp-validation-for="eName" class="text-danger"></span>*@
+                </div>
+
+                    <div class="form-group col-md-4">
+                    <label asp-for="dateG" class="control-label">Date Gregorian</label>
+                    <input asp-for="dateG" class="form-control" />
+                  @*  <span asp-validation-for="dateG" class="text-danger"></span>*@
+                </div>
+                    <div class="form-group col-md-4">
+                        <label asp-for="dateH" class="control-label">Date Hijri</label>
+                    <input asp-for="dateH" class="form-control" />
+                 @*   <span asp-validation-for="dateH" class="text-danger"></span>*@
+                </div>
+                    <div class="form-group col-md-4">
+                    <label asp-for="telephone" class="control-label">mainContact1</label>
+                    <input asp-for="telephone" class="form-control" />
+                  @*  <span asp-validation-for="telephone" class="text-danger"></span>*@
+                </div>
+
+
+
+
+
+                    <div class="form-group col-md-4">
+                        <label asp-for="invoiceVATID" class="control-label">VATID</label>
+                    <input asp-for="invoiceVATID" class="form-control" />
+                 @*   <span asp-validation-for="invoiceVATID" class="text-danger"></span>*@
+                </div>
+                    <div class="form-group col-md-4">
+                        <label asp-for="clientVendorNo" class="control-label">client</label>
+                    <input asp-for="clientVendorNo" class="form-control" />
+           @*         <span asp-validation-for="clientVendorNo" class="text-danger"></span>*@
+                </div>
+
+
+
+
+
+
+                <style>
+                    .form-group-material {
+                        position: relative;
+                        margin-bottom: 0px !important;
+                    }
+                </style>
+                <script src="~/lib/jquery/dist/jquery.min.js"></script>
+                <section class="forms">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-body items-list">
+                                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                            <br />
+                                            <div class="col-sm-12">
+                                               
+                                                <a id="add_row" class="btn btn-primary float-right TY">ADD</a>
+                                                <table class="table table-bordered">
+                                                    <thead>
+                                                        <tr>
+                                                            <td>orderNo</td>
+                                                            <td>itemNo</td>
+                                                            <td>Unit Arabic Name</td>
+                                                            <td>unitNo</td>
+                                                            <td>quantity</td>
+                                                            <td>price</td>
+                                                            <td>discount</td>
+                                                            <td>total</td>
+                                                            <td>taxRate1_Percentage</td>
+                                                            <td>taxRate1_Total</td>
+                                                            <td>totalPlusTax</td>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @Html.Partial("_AddMorePartialView")
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        
+                                            <div class="zeprex">
+                                                <div class="btn btn-dark">
+                                                    <label class="control-label">subQuantaty</label>
+                                                    <input  id="subQuantaty" class="form-control" />
+                                                </div>
+                                                <div class="btn btn-dark">
+                                                    <label class="control-label">subTotalDiscount</label>
+                                                    <input id="subTotalDiscount" class="form-control" />
+                                                </div>
+                                                <div class="btn btn-dark">
+                                                    <label class="control-label">subNetTotal</label>
+                                                    <input id="subNetTotal" class="form-control" />
+                                                </div>
+                                            </div>
+                                           
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+   
+                    <script>
+                        subQuantaty = document.querySelector('#subQuantaty');
+                        subTotalDiscount = document.querySelector('#subTotalDiscount');
+                        subNetTotal = document.querySelector('#subNetTotal');
+                        updateSubNetTotal = function() {
+                            sum3 = 0;
+                            document.querySelectorAll('#total').forEach((q) => sum3 += q.value * 1)
+                            subNetTotal.value = sum3;
+                           
+                        }
+                        bindEventLiteners = function(elem) {
+                            let quantity = elem.querySelector('#quantity');
+                            let price = elem.querySelector('#price');
+                            let discount = elem.querySelector('#discount');
+                            let total = elem.querySelector('#total');
+                            let taxRate1_Percentage = elem.querySelector('#taxRate1_Percentage');
+                            let taxRate1_Total = elem.querySelector('#taxRate1_Total');
+                            let totalPlusTax = elem.querySelector('#totalPlusTax');
+                          
+
+                            quantity.addEventListener('keyup', () => {
+                                if (discount.value != 0) {
+                                    total.value = quantity.value * price.value - (discount.value * (quantity.value * price.value) / 100);
+                                }
+                                else { total.value = quantity.value * price.value; }
+                                sum = 0;
+                                document.querySelectorAll('#quantity').forEach((q) => sum += q.value * 1)
+                                subQuantaty.value = sum;
+                                updateSubNetTotal();
+                               
+                            })
+
+                            price.addEventListener('keyup', () => {
+                                if (discount.value != 0) {
+                                    total.value = quantity.value * price.value - (discount.value * (quantity.value * price.value) / 100);
+                                }
+                                else { total.value = quantity.value * price.value; }
+                                updateSubNetTotal();
+                            })
+
+                            discount.addEventListener('keyup', () => {
+                                if (discount.value != 0) {
+                                    total.value = quantity.value * price.value - (discount.value * (quantity.value * price.value) / 100);
+                                }
+                                else { total.value = quantity.value * price.value; }
+                                sum1 = 0;
+                                document.querySelectorAll('#discount').forEach((q) => sum1 += q.value * 1)
+                                subTotalDiscount.value = sum1;
+                                updateSubNetTotal();
+                            })
+
+                            taxRate1_Percentage.addEventListener('keyup', () => {
+                                taxRate1_Total.value = (taxRate1_Percentage.value / 100) * total.value;
+                                totalPlusTax.value = Number(total.value) + Number(taxRate1_Total.value);
+                            })
+                        }
+                        count = 1;
+                        $('#add_row').on('click', function () {
+                            $.ajax({
+                                url: '@Url.Action("AddMorePartialView", "InvoiceSells")',
+                                type: 'GET',
+                                data: {
+                                },
+                                success: function (result) {
+                                    row = document.createElement("tr");
+                                    row.className = "editable-row row" + count;
+                                    count += 1;
+                                    row.innerHTML = result;
+                                    $('.table-bordered tbody').append(row);
+
+                                    bindEventLiteners(row);
+                                },
+                                error: function () {
+
+                                }
+                            });
+                        });
+                        bindEventLiteners(document);
+                    </script>
+
+
+
+
+
+
+
+              
+         
+                <div class="form-group col">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+  @*  <div>
+        <a class="btn btn-danger" asp-action="Index">Back to List</a>
+    </div>*@
+
+ 
+    </div>
+    </body>
+</html>

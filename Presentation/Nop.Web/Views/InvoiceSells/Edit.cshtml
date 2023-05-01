@@ -1,0 +1,105 @@
+﻿@model Nop.Web.Models.InvoiceSell
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = null;
+}
+
+<h2>Edit</h2>
+
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+    <body>
+
+    <h2>Create</h2>
+
+    <h4>InvoiceSell</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                            <input type="hidden" asp-for="buildingNo" />
+                            <input type="hidden" asp-for="invoiceNo" />
+
+               @* <div class="form-group">
+                    <label asp-for="buildingNo" class="control-label"></label>
+                    <input asp-for="buildingNo" class="form-control" />
+                    @*  <span asp-validation-for="invoiceNo" class="text-danger"></span>
+                </div>*@
+
+                <div class="form-group">
+                   
+                    <input name="userNumber" class="form-control" hidden="hidden" value="5" />
+              
+                </div>
+             
+                <div class="form-group">
+                    <label asp-for="aName" class="control-label"></label>
+                    <input asp-for="aName" class="form-control" />
+                 @*   <span asp-validation-for="aName" class="text-danger"></span>*@
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="eName" class="control-label"></label>
+                    <input asp-for="eName" class="form-control" />
+                 @*   <span asp-validation-for="eName" class="text-danger"></span>*@
+                </div>
+          
+                <div class="form-group">
+                    <label asp-for="dateG" class="control-label"></label>
+                    <input asp-for="dateG" class="form-control" />
+                  @*  <span asp-validation-for="dateG" class="text-danger"></span>*@
+                </div>
+                <div class="form-group">
+                    <label asp-for="dateH" class="control-label"></label>
+                    <input asp-for="dateH" class="form-control" />
+                 @*   <span asp-validation-for="dateH" class="text-danger"></span>*@
+                </div>
+                <div class="form-group">
+                    <label asp-for="telephone" class="control-label"></label>
+                    <input asp-for="telephone" class="form-control" />
+                  @*  <span asp-validation-for="telephone" class="text-danger"></span>*@
+                </div>
+              
+              
+              
+              
+                
+                <div class="form-group">
+                    <label asp-for="invoiceVATID" class="control-label"></label>
+                    <input asp-for="invoiceVATID" class="form-control" />
+                 @*<span asp-validation-for="invoiceVATID" class="text-danger"></span>*@
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="clientVendorNo" class="control-label"></label>
+                    <input asp-for="clientVendorNo" class="form-control" />
+           @*<span asp-validation-for="clientVendorNo" class="text-danger"></span>*@
+                </div>
+
+                            <div class="form-group">
+                                <input type="submit" value="Edit" class="btn btn-default" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+
+
+
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+</body>
+</html>

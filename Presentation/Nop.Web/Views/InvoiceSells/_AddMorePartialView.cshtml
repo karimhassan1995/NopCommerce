@@ -1,0 +1,85 @@
+﻿@model Nop.Web.Models.InvoiceDetails
+@{
+    Layout = null;
+}
+@using HtmlHelpers.BeginCollectionItemCore;
+@{
+    //BeginCollectionItemCore already created in HtmlHelper.cs class
+}
+
+@using (Html.BeginCollectionItem("InvoiceDetailsList"))
+{
+    <!-------"AddMoreList"----- this is AddMoreViewModel List Object wich is define ViewModel file -->
+        
+            <tr>
+                <td>
+                    @*<label asp-for="orderNo" class="control-label"></label>*@
+                    <input asp-for="orderNo" placeholder="orderNo" class="form-control" />
+                </td> 
+                <td>
+                    @*<label asp-for="itemNo" class="control-label"></label>*@
+                    <input asp-for="itemNo" placeholder="itemNo" class="form-control" />
+                </td>
+                <td>
+                    @*<label asp-for="UaName" class="control-label">Unit Arabic Name</label>*@
+                    <input asp-for="UaName" placeholder="UaName" class="form-control" />
+                </td>
+                <td>
+                    @*<label asp-for="unitNo" class="control-label"></label>*@
+                    <input asp-for="unitNo" placeholder="unitNo" class="form-control" />
+                </td>
+                <td>
+                    @*<label asp-for="quantity" class="control-label"></label>*@
+                    <input asp-for="quantity" placeholder="quantity" id="quantity" class="form-control" />
+                </td>
+                <td>
+                    @*<label asp-for="price" class="control-label"></label>*@
+                    <input asp-for="price" placeholder="price" id="price"  class="form-control" />
+                </td>
+                <td>
+                    @*<label asp-for="discount" class="control-label"></label>*@
+                    <input asp-for="discount" placeholder="discount" id="discount" class="form-control" />
+                </td>
+                <td>
+                    @*<label asp-for="total" class="control-label"></label>*@
+                     <input asp-for="total" placeholder="total" id="total" class="form-control" />
+                </td>
+                <td>
+                    @*<label asp-for="taxRate1_Percentage" class="control-label"></label>*@
+                    <input asp-for="taxRate1_Percentage" placeholder="taxRate1_Percentage" id="taxRate1_Percentage" class="form-control" />
+                 </td>
+                <td>
+                    @*<label asp-for="taxRate1_Total" class="control-label"></label>*@
+                    <input asp-for="taxRate1_Total" placeholder="taxRate1_Total" id="taxRate1_Total" class="form-control" />
+                </td>
+                <td>
+                    @*<label asp-for="totalPlusTax" class="control-label"></label>*@
+                    <input asp-for="totalPlusTax" placeholder="totalPlusTax" id="totalPlusTax" class="form-control" />
+                </td>
+                <td>
+                    <button type="button" class="btn btn-danger btn-sm removeDiv">
+                        Remove
+                    </button>
+                </td>
+            </tr>
+           @* <div class="clearfix"></div>*@
+
+}
+<script>
+    $(".removeDiv").click(function () {
+        $(this).parents(".editable-row").remove();
+        sum = 0;
+        document.querySelectorAll('#quantity').forEach((q) => sum += q.value * 1)
+        document.querySelector('#subQuantaty').value = sum;
+        sum1 = 0;
+        document.querySelectorAll('#discount').forEach((q) => sum1 += q.value * 1)
+        document.querySelector('#subTotalDiscount').value = sum1;
+        sum3 = 0;
+        document.querySelectorAll('#total').forEach((q) => sum3 += q.value * 1)
+        subNetTotal.value = sum3;
+    });
+
+   
+
+
+</script>

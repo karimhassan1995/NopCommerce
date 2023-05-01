@@ -1,0 +1,111 @@
+﻿@model IEnumerable<Nop.Web.Models.InvoiceSell>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="/css/install/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+        <a class="btn btn-primary" asp-action="Create">Create New</a>
+</p>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.invoiceNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.aName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.eName)
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.dateG)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dateH)
+            </th>
+           
+           
+            
+           
+           
+            
+            
+           
+           
+            <th>
+                @Html.DisplayNameFor(model => model.telephone)
+            </th>
+            
+            
+            
+           
+            <th>
+                @Html.DisplayNameFor(model => model.invoiceVATID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.clientVendorNo)
+            </th>
+           
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+             
+                <td>
+                    @Html.DisplayFor(modelItem => item.invoiceNo)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.aName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.eName)
+            </td>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.dateG)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dateH)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.telephone)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.invoiceVATID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.clientVendorNo)
+            </td>
+            <td>
+                        @Html.ActionLink("Edit", "Edit", new { id=item.invoiceNo  }, new { @class = "btn btn-warning" }) |
+                        @Html.ActionLink("Details", "Details", new { id=item.invoiceNo }, new { @class = "btn btn-success" }) |
+                        @Html.ActionLink("Delete", "Delete", new { id=item.invoiceNo  }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+</body>
+</html>
+
